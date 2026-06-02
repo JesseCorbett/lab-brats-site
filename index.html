@@ -249,16 +249,6 @@
         border-bottom-width: 1px;
       }
 
-      @media (max-width: 650px) {
-        #about {
-          grid-template-columns: 1fr;
-        }
-
-        #about > div {
-          padding: 36px 48px;
-        }
-      }
-
       #about .about-name {
         width: 100%;
         display: flex;
@@ -309,6 +299,20 @@
         display: block;
         transform: rotate(90deg);
         user-select: none;
+      }
+
+      @media (max-width: 650px) {
+        #about {
+          grid-template-columns: 1fr;
+        }
+
+        #about > div {
+          padding: 36px 48px;
+        }
+
+        #about > div > a {
+          margin: 0 24px 0 auto;
+        }
       }
 
       #contact-us a {
