@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab Brats</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="we are just four totally normal specimens who absolutely always stay on topic! we’re bring you yapping, music, art, gaming, and whatever else escapes containment… do not touch the glowing beaker! meet the brats, find our links, peek at our stats, and see what chaos we’re cooking up next!">
+
+    <meta property="og:title" content="Lab Brats">
+    <meta property="og:description" content="we are just four totally normal specimens who absolutely always stay on topic! &#10;&#13;we’re bring you yapping, music, art, gaming, and whatever else escapes containment… do not touch the glowing beaker! meet the brats, find our links, peek at our stats, and see what chaos we’re cooking up next!">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="img/logo.png">
+    <meta property="og:image:alt" content="Lab Brats logo">
+    <meta name="theme-color" content="#2d2e30">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Space+Mono&family=VT323&display=swap"
+          rel="stylesheet">
+    <style>
+      body {
+        background-color: #2d2e30;
+        color: white;
+        font-size: 16px;
+        margin: 0;
+        width: 100%;
+      }
+
+      main {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 45px;
+        font-weight: 400;
+        margin: 0;
+        color: #d5fbff;
+        text-align: center;
+        line-height: 1;
+      }
+
+      section {
+        box-sizing: border-box;
+        position: relative;
+        width: 100%;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #99FFF3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        overflow: hidden;
+      }
+
+      section.column {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      section.emphasis {
+        padding: 80px 100px;
+      }
+
+      @media (max-width: 900px) {
+        section.emphasis {
+          padding: 40px 50px;
+        }
+      }
+
+      p {
+        margin: 0;
+        text-align: center;
+      }
+
+      .dotgothic {
+        font-family: "DotGothic16", monospace;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .vt323 {
+        font-family: "VT323", monospace;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .space-mono {
+        font-family: "Space Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+
+      @keyframes marqueeScroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      #nav > div {
+        margin: 0 auto;
+      }
+
+      #nav > a {
+        color: white;
+      }
+
+      #nav > a:last-child {
+        text-decoration: none;
+      }
+
+      #marquee {
+        overflow: hidden;
+        background-color: black;
+        letter-spacing: 0.16px;
+        display: flex;
+        padding: 0;
+      }
+
+      .marquee-collection {
+        white-space: nowrap;
+        width: max-content;
+        animation: marqueeScroll 30s linear infinite;
+      }
+
+      .marquee-container {
+        padding: 10px 50px 10px 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .marquee-container .icon {
+        font-size: 20px;
+      }
+
+      #hero {
+        height: 700px;
+        max-width: 100%;
+      }
+
+      #hero-splash {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        user-select: none;
+        display: block;
+        object-fit: cover;
+      }
+
+      #hero-logo {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: 150px;
+      }
+
+      #hero-under-logo-container {
+        display: none;
+      }
+
+      #hero-under-logo {
+        height: 150px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 900px) {
+        #hero {
+          height: 500px;
+        }
+        #hero-logo {
+          display: none;
+        }
+        #hero-under-logo-container {
+          display: block;
+        }
+      }
+
+      @media (max-width: 650px) {
+        #hero {
+          height: 250px;
+        }
+      }
+
+
+      #about {
+        padding: 0;
+        font-size: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 1px;
+      }
+
+      #about > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 30px;
+        padding: 45px 52px;
+        border: 0 solid #99FFF3;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+      }
+
+      #about > div > div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      #about > div > p {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #about > div > picture > img {
+        width: 165px;
+      }
+
+      #about > div > a {
+        margin-left: auto;
+        transform: rotate(90deg);
+        user-select: none;
+      }
+
+      #contact-us a {
+        color: white;
+        text-decoration: none;
+      }
+
+      #links {
+        aspect-ratio: 10/7;
+        min-height: 450px;
+      }
+
+      #links img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        user-select: none;
+        display: block;
+        object-fit: cover;
+      }
+
+      #links > div {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 38px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: linear-gradient(to right, transparent 0, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.1) 60%, transparent 100%);
+      }
+
+      #links > div > a {
+        font-size: 45px;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      @media (max-width: 650px) {
+        #links > div {
+          background-image: linear-gradient(to right, transparent 0, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="dotgothic">
+      <section id="nav">
+        <a href="#nav">Home :)</a>
+        <div>Today’s Experiment: Lab Brats • Subject #001</div>
+        <a href="#about">About Us</a>
+      </section>
+      <section id="marquee">
+        <div class="marquee-collection">
+        <span class="marquee-container">
+          <span class="icon vt323">♡</span>
+          <span>Current vibe: mildly unhinged(๑˃̵ᴗ˂̵)</span>
+        </span>
+          <span class="marquee-container">
+          <span class="icon vt323">♡</span>
+          <span>Current vibe: mildly unhinged(๑˃̵ᴗ˂̵)</span>
+        </span>
+          <span class="marquee-container">
+          <span class="icon vt323">♡</span>
+          <span>Current vibe: mildly unhinged(๑˃̵ᴗ˂̵)</span>
+        </span>
+        </div>
+        <div class="marquee-collection" aria-hidden="true">
+        <span class="marquee-container">
+          <span class="icon vt323">♡</span>
+          <span>Current vibe: mildly unhinged(๑˃̵ᴗ˂̵)</span>
+        </span>
+          <span class="marquee-container">
+          <span class="icon vt323">♡</span>
+          <span>Current vibe: mildly unhinged(๑˃̵ᴗ˂̵)</span>
+        </span>
+          <span class="marquee-container">
+          <span class="icon vt323">♡</span>
+          <span>Current vibe: mildly unhinged(๑˃̵ᴗ˂̵)</span>
+        </span>
+        </div>
+      </section>
+      <section id="hero">
+        <picture>
+          <source srcset="img/lab-brats.avif" type="image/avif">
+          <source srcset="img/lab-brats.webp" type="image/webp">
+          <img id="hero-splash" src="img/lab-brats.png" alt="Lab Brats Logo" draggable="false"/>
+        </picture>
+        <picture>
+          <source srcset="img/logo-bg.avif" type="image/avif">
+          <source srcset="img/logo-bg.webp" type="image/webp">
+          <img id="hero-logo" src="img/logo-bg.png" alt="Lab Brats Logo" draggable="false"/>
+        </picture>
+      </section>
+      <section class="emphasis column">
+        <picture id="hero-under-logo-container">
+          <source srcset="img/logo.avif" type="image/avif">
+          <source srcset="img/logo.webp" type="image/webp">
+          <img id="hero-under-logo" src="img/logo.png" alt="Lab Brats Logo" draggable="false"/>
+        </picture>
+        <h1>Enter the Lab!</h1>
+        <div>
+          <p>we are just four totally normal specimens who absolutely always stay on topic!</p>
+          <p>we’re bring you yapping, music, art, gaming, and whatever else escapes containment… do not touch
+            the glowing beaker! meet the brats, find our links, peek at our stats, and see what chaos we’re
+            cooking up next!</p>
+        </div>
+      </section>
+      <section id="about" class="space-mono">
+        <div id="about-chrchie">
+          <div><span>Entry #1</span><span>chrchie</span></div>
+          <picture>
+            <source srcset="img/chrchie.avif" type="image/avif">
+            <source srcset="img/chrchie.webp" type="image/webp">
+            <img src="img/chrchie.png" alt="chrchie & Gooby chibi art" draggable="false"/>
+          </picture>
+          <p>
+            <span>lizard girl</span>
+            <span>critter keeper</span>
+            <span>(˶˃ ᵕ ˂˶)</span>
+          </p>
+          <a href="https://www.twitch.tv/chrchie" target="chrchie"><img src="img/arrow.svg" alt="Link arrow"
+                                                                        width="28" height="28"></a>
+        </div>
+        <div id="about-ellie">
+          <div><span>Entry #2</span><span>Ellie Minibot</span></div>
+          <picture>
+            <source srcset="img/ellie_minibot.avif" type="image/avif">
+            <source srcset="img/ellie_minibot.webp" type="image/webp">
+            <img src="img/ellie_minibot.png" alt="ellie_minibot chibi art" draggable="false"/>
+          </picture>
+          <p>
+            <span>dumb little robot</span>
+            <span>circuit specialist</span>
+            <span>(⇀‸↼‶)ᕗ</span>
+          </p>
+          <a href="https://www.twitch.tv/ellie_minibot" target="ellie"><img src="img/arrow.svg"
+                                                                            alt="Link arrow" width="28"
+                                                                            height="28"></a>
+        </div>
+        <div id="about-miniko">
+          <div><span>Entry #3</span><span>Miniko Mew</span></div>
+          <picture>
+            <source srcset="img/minikomew.avif" type="image/avif">
+            <source srcset="img/minikomew.webp" type="image/webp">
+            <img src="img/minikomew.png" alt="MinikoMew chibi art" draggable="false"/>
+          </picture>
+          <p>
+            <span>cat in a box</span>
+            <span>chaos consultant</span>
+            <span>=^._.^=</span>
+          </p>
+          <a href="https://www.twitch.tv/minikomew" target="minikomew"><img src="img/arrow.svg"
+                                                                            alt="Link arrow" width="28"
+                                                                            height="28"></a>
+        </div>
+        <div id="about-shoomimi">
+          <div><span>Entry #4</span><span>Shoomimmi</span></div>
+          <picture>
+            <source srcset="img/shoomimi.avif" type="image/avif">
+            <source srcset="img/shoomimi.webp" type="image/webp">
+            <img src="img/shoomimi.png" alt="Shoomimi chibi art" draggable="false"/>
+          </picture>
+          <p>
+            <span>brain in a jar</span>
+            <span>questionable lab safety officer</span>
+            <span>(｡•̀ᴗ-)✧</span>
+          </p>
+          <a href="https://www.twitch.tv/shoomimi" target="shoomimi"><img src="img/arrow.svg" alt="Link arrow"
+                                                                          width="28" height="28"></a>
+        </div>
+      </section>
+      <section id="contact-us" class="emphasis column">
+        <h1>Wanna cook up an experiment together?</h1>
+        <h1>For: collaborations, inquiries, appearances, and other mysterious lab matters.</h1>
+        <p class="space-mono">
+          <span>// STATS</span>
+          <br>
+          <span><a href="mailto:hi@labbrats.tv">HI@LABBRATS.TV</a></span>
+        </p>
+      </section>
+      <section id="links" class="emphasis column">
+        <picture>
+          <source srcset="img/surrounded.avif" type="image/avif">
+          <source srcset="img/surrounded.webp" type="image/webp">
+          <img src="img/surrounded.png" alt="Lab Brats lineup" draggable="false"/>
+        </picture>
+        <div>
+          <a href="#about">Watch Us Live</a>
+          <a href="#links">Discography</a>
+          <a href="#links">Merch</a>
+        </div>
+      </section>
+    </main>
+  </body>
+
+</html>
