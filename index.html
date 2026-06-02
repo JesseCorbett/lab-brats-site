@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lab Brats</title>
     <meta name="description"
-          content="we are just four totally normal specimens who absolutely always stay on topic! we’re bring you yapping, music, art, gaming, and whatever else escapes containment… do not touch the glowing beaker! meet the brats, find our links, peek at our stats, and see what chaos we’re cooking up next!">
+          content="we are just four totally normal specimens who absolutely always stay on topic! 🦎 🤖 🧠 🐱">
 
     <meta property="og:title" content="Lab Brats">
     <meta property="og:description"
-          content="we are just four totally normal specimens who absolutely always stay on topic! &#10;&#13;we’re bring you yapping, music, art, gaming, and whatever else escapes containment… do not touch the glowing beaker! meet the brats, find our links, peek at our stats, and see what chaos we’re cooking up next!">
+          content="we are just four totally normal specimens who absolutely always stay on topic! 🦎 🤖 🧠 🐱 &#10;&#13;we're bring you yapping, music, art, gaming, and whatever else escapes containment… do not touch the glowing beaker! meet the brats, find our links, peek at our stats, and see what chaos we're cooking up next! ദ്ദി ˉ͈̀꒳ˉ͈́ ) ✨">
     <meta property="og:type" content="website">
     <meta property="og:image" content="img/logo.png">
     <meta property="og:image:alt" content="Lab Brats logo">
@@ -78,6 +78,31 @@
       p {
         margin: 0;
         text-align: center;
+      }
+
+      button {
+        border: none;
+        padding: 4px 8px;
+        border-radius: 8px;
+        background-color: #99FFF3;
+        color: #2d2e30;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .chip-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .chip {
+        border: 1px solid #99FFF3;
+        border-radius: 26px;
+        padding: 4px 8px;
+        font-size: 12px;
+        user-select: all;
       }
 
       .dotgothic {
@@ -206,7 +231,7 @@
         padding: 0;
         font-size: 20px;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: repeat(auto-fit, minmax(450px, 1fr));
         align-items: stretch;
         gap: 1px;
@@ -218,13 +243,23 @@
         align-items: center;
         justify-content: space-evenly;
         gap: 30px;
-        padding: 20px 36px;
+        padding: 28px 36px;
         border: 0 solid #99FFF3;
         border-right-width: 1px;
         border-bottom-width: 1px;
       }
 
-      #about > div > div {
+      @media (max-width: 650px) {
+        #about {
+          grid-template-columns: 1fr;
+        }
+
+        #about > div {
+          padding: 36px 48px;
+        }
+      }
+
+      #about > div > div:first-child {
         width: 100%;
         display: flex;
         align-items: center;
@@ -417,15 +452,13 @@
         </picture>
         <h1>Enter the Lab!</h1>
         <div>
-          <p>we are just four totally normal specimens who absolutely always stay on topic!</p>
-          <p>we’re bring you yapping, music, art, gaming, and whatever else escapes containment… do not touch
-            the glowing beaker! meet the brats, find our links, peek at our stats, and see what chaos we’re
-            cooking up next!</p>
+          <p>we are just four totally normal specimens who absolutely always stay on topic! 🦎 🤖 🧠 🐱</p>
+          <p>we're bring you yapping, music, art, gaming, and whatever else escapes containment… do not touch the glowing beaker! meet the brats, find our links, peek at our stats, and see what chaos we're cooking up next! ദ്ദി ˉ͈̀꒳ˉ͈́ ) ✨</p>
         </div>
       </section>
       <section id="about" class="space-mono">
         <div id="about-chrchie">
-          <div><span>Entry #1</span><span>chrchie</span></div>
+          <div><span>Entry #1</span><span>chrchie🦎⭐️</span></div>
           <picture>
             <source srcset="img/chrchie.avif" type="image/avif">
             <source srcset="img/chrchie.webp" type="image/webp">
@@ -436,6 +469,12 @@
             <span>critter keeper</span>
             <span>(˶˃ ᵕ ˂˶)</span>
           </p>
+          <div class="chip-container">
+            <div class="chip">graphic design</div>
+            <div class="chip">ux/ui design</div>
+            <div class="chip">singing</div>
+            <div class="chip">art</div>
+          </div>
           <footer>
             <a class="stat" href="https://www.twitch.tv/chrchie" target="chrchie_twitch">
               <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
@@ -453,13 +492,13 @@
               <img src="img/social/instagram.svg" width="16" height="16" alt="Instagram" draggable="false"/>
               <span>13.6K</span>
             </a>
-            <a href="https://www.twitch.tv/chrchie" target="chrchie_twitch">
-              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+            <a href="https://chrchie.com/" target="chrchie_site">
+              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28" title="chrchie's website">
             </a>
           </footer>
         </div>
         <div id="about-ellie">
-          <div><span>Entry #2</span><span>Ellie Minibot</span></div>
+          <div><span>Entry #2</span><span>Ellie Minibot🤖🤍</span></div>
           <picture>
             <source srcset="img/ellie_minibot.avif" type="image/avif">
             <source srcset="img/ellie_minibot.webp" type="image/webp">
@@ -470,6 +509,12 @@
             <span>circuit specialist</span>
             <span>(⇀‸↼‶)ᕗ</span>
           </p>
+          <div class="chip-container">
+            <div class="chip">coding</div>
+            <div class="chip">robotics</div>
+            <div class="chip">songwriting</div>
+            <div class="chip">singing</div>
+          </div>
           <footer>
             <a class="stat" href="https://www.twitch.tv/ellie_minibot" target="ellie_twitch">
               <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
@@ -483,13 +528,13 @@
               <img src="img/social/tiktok.svg" width="16" height="16" alt="TikTok" draggable="false"/>
               <span>16.1K</span>
             </a>
-            <a href="https://www.twitch.tv/ellie_minibot" target="ellie_twitch">
+            <a href="https://open.spotify.com/artist/4LzVol25GhSbUvPpi89XFY" target="ellie_site" title="Ellie's Spotify">
               <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
             </a>
           </footer>
         </div>
         <div id="about-miniko">
-          <div><span>Entry #3</span><span>Miniko Mew</span></div>
+          <div><span>Entry #3</span><span>Miniko Mew📦</span></div>
           <picture>
             <source srcset="img/minikomew.avif" type="image/avif">
             <source srcset="img/minikomew.webp" type="image/webp">
@@ -500,6 +545,11 @@
             <span>chaos consultant</span>
             <span>=^._.^=</span>
           </p>
+          <div class="chip-container">
+            <div class="chip">dancing</div>
+            <div class="chip">singing</div>
+            <div class="chip">3d performance</div>
+          </div>
           <footer>
             <a class="stat" href="https://www.twitch.tv/minikomew" target="mini_twitch">
               <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
@@ -509,13 +559,13 @@
               <img src="img/social/youtube.svg" width="16" height="16" alt="YouTube" draggable="false"/>
               <span>30.5K</span>
             </a>
-            <a href="https://www.twitch.tv/minikomew" target="mini_twitch">
+            <a href="https://hyperfollow.com/minikomew" target="mini_site" title="MinikoMew's website">
               <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
             </a>
           </footer>
         </div>
         <div id="about-shoomimi">
-          <div><span>Entry #4</span><span>Shoomimmi</span></div>
+          <div><span>Entry #4</span><span>Shoomimmi🦾🧠</span></div>
           <picture>
             <source srcset="img/shoomimi.avif" type="image/avif">
             <source srcset="img/shoomimi.webp" type="image/webp">
@@ -526,6 +576,11 @@
             <span>questionable lab safety officer</span>
             <span>(｡•̀ᴗ-)✧</span>
           </p>
+          <div class="chip-container">
+            <div class="chip">singing</div>
+            <div class="chip">art</div>
+            <div class="chip">competitive gaming</div>
+          </div>
           <footer>
             <a class="stat" href="https://www.twitch.tv/shoomimi" target="shoomimi_twitch">
               <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
@@ -564,7 +619,7 @@
           </div>
         </div>
         <p class="space-mono">
-          <a href="mailto:hi@labbrats.tv">hi@LABBRATS.TV</a>
+          <a href="mailto:hi@labbrats.tv"><button>hi@LABBRATS.TV</button></a>
         </p>
       </section>
       <section id="links" class="emphasis column">
@@ -574,9 +629,9 @@
           <img src="img/surrounded.png" alt="Lab Brats lineup" draggable="false"/>
         </picture>
         <div>
-          <a href="#about">Watch Us Live</a>
-          <a href="#links">Discography</a>
-          <a href="#links">Merch</a>
+          <a href="https://www.twitch.tv/team/labbrats" target="twitch_team">Watch Us Live</a>
+          <a href="https://open.spotify.com/playlist/5SLxdubTIsIobpFXgMQYcS" target="spotify_playlist">Discography</a>
+          <a href="https://www.orchideight.com/" target="merch">Merch</a>
         </div>
       </section>
     </main>
