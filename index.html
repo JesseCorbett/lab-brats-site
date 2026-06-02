@@ -317,6 +317,42 @@
         text-decoration: none;
       }
 
+      #contact-us #stats {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      #contact-us .stat {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        user-select: none;
+        color: white;
+      }
+
+      #contact-us .stat img {
+        filter: invert(1);
+      }
+
+      #videos {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      #videos > iframe {
+        width: 50%;
+        height: auto;
+        aspect-ratio: 16/9;
+      }
+
+      @media (max-width: 650px) {
+        #videos > iframe {
+          width: 100%;
+        }
+      }
+
       #links {
         aspect-ratio: 10/7;
         min-height: 450px;
@@ -365,24 +401,6 @@
         #links > div {
           background-image: linear-gradient(to right, transparent 0, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
         }
-      }
-
-      #contact-us #stats {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
-
-      #contact-us .stat {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        user-select: none;
-        color: white;
-      }
-
-      #contact-us .stat img {
-        filter: invert(1);
       }
     </style>
   </head>
@@ -621,6 +639,10 @@
         <p class="space-mono">
           <a href="mailto:hi@labbrats.tv"><button>hi@LABBRATS.TV</button></a>
         </p>
+      </section>
+      <section id="videos">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/NE3x2wC3_Lw?si=mH0QAUiIpel_gkwl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/46u679Dv_aQ?si=e7PtAr_f3ZXI0wId" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </section>
       <section id="links" class="emphasis column">
         <picture>
