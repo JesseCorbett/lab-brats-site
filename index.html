@@ -259,7 +259,7 @@
         }
       }
 
-      #about > div > div:first-child {
+      #about .about-name {
         width: 100%;
         display: flex;
         align-items: center;
@@ -278,7 +278,7 @@
         height: 165px;
       }
 
-      #about > div > footer {
+      #about .stats {
         width: 100%;
         position: relative;
         display: flex;
@@ -288,7 +288,7 @@
         color: white;
       }
 
-      #about > div > footer > a:not(:last-child) {
+      #about .stats > a {
         display: flex;
         flex-direction: row;
         gap: 4px;
@@ -299,15 +299,14 @@
         font-size: 16px;
       }
 
-      #about > div > footer > a:not(:last-child) > img {
+      #about .stats > a > img {
         filter: invert(1);
         user-select: none;
       }
 
-      #about > div > footer > a:last-child {
-        position: absolute;
-        bottom: 0;
-        right: 0;
+      #about > div > a {
+        margin: 0 0 0 auto;
+        display: block;
         transform: rotate(90deg);
         user-select: none;
       }
@@ -476,7 +475,7 @@
       </section>
       <section id="about" class="space-mono">
         <div id="about-chrchie">
-          <div><span>Entry #1</span><span>chrchie🦎⭐️</span></div>
+          <div class="about-name"><span>Entry #1</span><span>chrchie🦎⭐️</span></div>
           <picture>
             <source srcset="img/chrchie.avif" type="image/avif">
             <source srcset="img/chrchie.webp" type="image/webp">
@@ -493,7 +492,7 @@
             <div class="chip">singing</div>
             <div class="chip">art</div>
           </div>
-          <footer>
+          <div class="stats">
             <a class="stat" href="https://www.twitch.tv/chrchie" target="chrchie_twitch">
               <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
               <span>48.7K</span>
@@ -501,6 +500,10 @@
             <a class="stat" href="https://www.youtube.com/channel/UCv7zvIiKMxzqraLx5QGiCbw" target="chrchieyoutube">
               <img src="img/social/youtube.svg" width="16" height="16" alt="YouTube" draggable="false"/>
               <span>15.8K</span>
+            </a>
+            <a class="stat" href="https://x.com/chrchie" target="chrchie_x">
+              <img src="img/social/x.svg" width="16" height="16" alt="X (formerly known as Twitter)" draggable="false"/>
+              <span>16.2K</span>
             </a>
             <a class="stat" href="https://www.tiktok.com/@chrchie" target="ellie_tiktok">
               <img src="img/social/tiktok.svg" width="16" height="16" alt="TikTok" draggable="false"/>
@@ -510,10 +513,10 @@
               <img src="img/social/instagram.svg" width="16" height="16" alt="Instagram" draggable="false"/>
               <span>13.6K</span>
             </a>
-            <a href="https://chrchie.com/" target="chrchie_site">
-              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28" title="chrchie's website">
-            </a>
-          </footer>
+          </div>
+          <a href="https://chrchie.com/" target="chrchie_site">
+            <img src="img/arrow.svg" alt="Link arrow" width="28" height="28" title="chrchie's website">
+          </a>
         </div>
         <div id="about-ellie">
           <div><span>Entry #2</span><span>Ellie Minibot🤖🤍</span></div>
@@ -533,7 +536,7 @@
             <div class="chip">songwriting</div>
             <div class="chip">singing</div>
           </div>
-          <footer>
+          <div class="stats">
             <a class="stat" href="https://www.twitch.tv/ellie_minibot" target="ellie_twitch">
               <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
               <span>82.1K</span>
@@ -542,14 +545,18 @@
               <img src="img/social/youtube.svg" width="16" height="16" alt="YouTube" draggable="false"/>
               <span>57.6K</span>
             </a>
+            <a class="stat" href="https://x.com/dumb_lil_robot" target="ellie_x">
+              <img src="img/social/x.svg" width="16" height="16" alt="X (formerly known as Twitter)" draggable="false"/>
+              <span>32.4K</span>
+            </a>
             <a class="stat" href="https://www.tiktok.com/@dumb_lil_robot" target="ellie_tiktok">
               <img src="img/social/tiktok.svg" width="16" height="16" alt="TikTok" draggable="false"/>
               <span>16.1K</span>
             </a>
-            <a href="https://open.spotify.com/artist/4LzVol25GhSbUvPpi89XFY" target="ellie_site" title="Ellie's Spotify">
-              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
-            </a>
-          </footer>
+          </div>
+          <a href="https://open.spotify.com/artist/4LzVol25GhSbUvPpi89XFY" target="ellie_site" title="Ellie's Spotify">
+            <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+          </a>
         </div>
         <div id="about-miniko">
           <div><span>Entry #3</span><span>Miniko Mew📦</span></div>
@@ -568,7 +575,7 @@
             <div class="chip">singing</div>
             <div class="chip">3d performance</div>
           </div>
-          <footer>
+          <div class="stats">
             <a class="stat" href="https://www.twitch.tv/minikomew" target="mini_twitch">
               <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
               <span>87.7K</span>
@@ -577,10 +584,14 @@
               <img src="img/social/youtube.svg" width="16" height="16" alt="YouTube" draggable="false"/>
               <span>30.5K</span>
             </a>
-            <a href="https://hyperfollow.com/minikomew" target="mini_site" title="MinikoMew's website">
-              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+            <a class="stat" href="https://x.com/MinikoMew" target="mini_x">
+              <img src="img/social/x.svg" width="16" height="16" alt="X (formerly known as Twitter)" draggable="false"/>
+              <span>30.7K</span>
             </a>
-          </footer>
+          </div>
+          <a href="https://hyperfollow.com/minikomew" target="mini_site" title="MinikoMew's website">
+            <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+          </a>
         </div>
         <div id="about-shoomimi">
           <div><span>Entry #4</span><span>Shoomimmi🦾🧠</span></div>
@@ -599,7 +610,7 @@
             <div class="chip">art</div>
             <div class="chip">competitive gaming</div>
           </div>
-          <footer>
+          <div class="stats">
             <a class="stat" href="https://www.twitch.tv/shoomimi" target="shoomimi_twitch">
               <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
               <span>28.2K</span>
@@ -608,10 +619,14 @@
               <img src="img/social/youtube.svg" width="16" height="16" alt="YouTube" draggable="false"/>
               <span>4.53K</span>
             </a>
-            <a href="https://www.twitch.tv/shoomimi" target="shoomimi_twitch">
-              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+            <a class="stat" href="https://x.com/Shoomimishoom" target="shoomimi_x">
+              <img src="img/social/x.svg" width="16" height="16" alt="X (formerly known as Twitter)" draggable="false"/>
+              <span>7.2K</span>
             </a>
-          </footer>
+          </div>
+          <a href="https://www.twitch.tv/shoomimi" target="shoomimi_twitch">
+            <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+          </a>
         </div>
       </section>
       <section id="contact-us" class="emphasis column">
@@ -626,6 +641,10 @@
           <div class="stat">
             <img src="img/social/youtube.svg" width="24" height="24" alt="YouTube" draggable="false"/>
             <span>108.4K</span>
+          </div>
+          <div class="stat">
+            <img src="img/social/x.svg" width="24" height="24" alt="X (formerly known as Twitter)" draggable="false"/>
+            <span>86.5K</span>
           </div>
           <div class="stat">
             <img src="img/social/tiktok.svg" width="24" height="24" alt="TikTok" draggable="false"/>
