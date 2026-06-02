@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:hx-on="http://www.w3.org/1999/xhtml">
 
   <head>
     <meta charset="utf-8">
@@ -22,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Space+Mono&family=VT323&display=swap"
           rel="stylesheet">
+    <script src="js/htmx.min.js"></script>
     <style>
       body {
         background-color: #2d2e30;
@@ -202,7 +203,9 @@
         padding: 0;
         font-size: 20px;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(450px, 1fr));
+        align-items: stretch;
         gap: 1px;
       }
 
@@ -212,7 +215,7 @@
         align-items: center;
         justify-content: space-evenly;
         gap: 30px;
-        padding: 45px 52px;
+        padding: 20px 36px;
         border: 0 solid #99FFF3;
         border-right-width: 1px;
         border-bottom-width: 1px;
@@ -231,12 +234,42 @@
         align-items: center;
       }
 
+      #about > div > picture,
       #about > div > picture > img {
         width: 165px;
+        height: 165px;
       }
 
-      #about > div > a {
-        margin-left: auto;
+      #about > div > footer {
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        color: white;
+      }
+
+      #about > div > footer > a:not(:last-child) {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      #about > div > footer > a:not(:last-child) > img {
+        filter: invert(1);
+        user-select: none;
+      }
+
+      #about > div > footer > a:last-child {
+        position: absolute;
+        bottom: 0;
+        right: 0;
         transform: rotate(90deg);
         user-select: none;
       }
@@ -374,8 +407,27 @@
             <span>critter keeper</span>
             <span>(˶˃ ᵕ ˂˶)</span>
           </p>
-          <a href="https://www.twitch.tv/chrchie" target="chrchie"><img src="img/arrow.svg" alt="Link arrow"
-                                                                        width="28" height="28"></a>
+          <footer>
+            <a class="stat" href="https://www.twitch.tv/chrchie" target="chrchie_twitch">
+              <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
+              <span>48.7K</span>
+            </a>
+            <a class="stat" href="https://www.youtube.com/channel/@chrchie" target="chrchieyoutube">
+              <img src="img/social/youtube.svg" width="16" height="16" alt="YouTube" draggable="false"/>
+              <span>57.6K</span>
+            </a>
+            <a class="stat" href="https://www.tiktok.com/@chrchie" target="ellie_tiktok">
+              <img src="img/social/tiktok.svg" width="16" height="16" alt="TikTok" draggable="false"/>
+              <span>2.68K</span>
+            </a>
+            <a class="stat" href="https://www.instagram.com/chrchie/" target="chrchie_instagram">
+              <img src="img/social/instagram.svg" width="16" height="16" alt="Instagram" draggable="false"/>
+              <span>13.6K</span>
+            </a>
+            <a href="https://www.twitch.tv/chrchie" target="chrchie_twitch">
+              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+            </a>
+          </footer>
         </div>
         <div id="about-ellie">
           <div><span>Entry #2</span><span>Ellie Minibot</span></div>
@@ -389,9 +441,23 @@
             <span>circuit specialist</span>
             <span>(⇀‸↼‶)ᕗ</span>
           </p>
-          <a href="https://www.twitch.tv/ellie_minibot" target="ellie"><img src="img/arrow.svg"
-                                                                            alt="Link arrow" width="28"
-                                                                            height="28"></a>
+          <footer>
+            <a class="stat" href="https://www.twitch.tv/ellie_minibot" target="ellie_twitch">
+              <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
+              <span>82.1K</span>
+            </a>
+            <a class="stat" href="https://www.youtube.com/@Ellie_Minibot" target="ellie_youtube">
+              <img src="img/social/youtube.svg" width="16" height="16" alt="YouTube" draggable="false"/>
+              <span>57.6K</span>
+            </a>
+            <a class="stat" href="https://www.tiktok.com/@dumb_lil_robot" target="ellie_tiktok">
+              <img src="img/social/tiktok.svg" width="16" height="16" alt="TikTok" draggable="false"/>
+              <span>16.1K</span>
+            </a>
+            <a href="https://www.twitch.tv/ellie_minibot" target="ellie_twitch">
+              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+            </a>
+          </footer>
         </div>
         <div id="about-miniko">
           <div><span>Entry #3</span><span>Miniko Mew</span></div>
@@ -405,9 +471,19 @@
             <span>chaos consultant</span>
             <span>=^._.^=</span>
           </p>
-          <a href="https://www.twitch.tv/minikomew" target="minikomew"><img src="img/arrow.svg"
-                                                                            alt="Link arrow" width="28"
-                                                                            height="28"></a>
+          <footer>
+            <a class="stat" href="https://www.twitch.tv/minikomew" target="mini_twitch">
+              <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
+              <span>87.7K</span>
+            </a>
+            <a class="stat" href="https://www.youtube.com/@MinikoMew" target="mini_youtube">
+              <img src="img/social/youtube.svg" width="16" height="16" alt="YouTube" draggable="false"/>
+              <span>30.5K</span>
+            </a>
+            <a href="https://www.twitch.tv/minikomew" target="mini_twitch">
+              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+            </a>
+          </footer>
         </div>
         <div id="about-shoomimi">
           <div><span>Entry #4</span><span>Shoomimmi</span></div>
@@ -421,8 +497,19 @@
             <span>questionable lab safety officer</span>
             <span>(｡•̀ᴗ-)✧</span>
           </p>
-          <a href="https://www.twitch.tv/shoomimi" target="shoomimi"><img src="img/arrow.svg" alt="Link arrow"
-                                                                          width="28" height="28"></a>
+          <footer>
+            <a class="stat" href="https://www.twitch.tv/shoomimi" target="shoomimi_twitch">
+              <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
+              <span>28.2K</span>
+            </a>
+            <a class="stat" href="https://www.youtube.com/@Shoomimi" target="shoomimi_youtube">
+              <img src="img/social/youtube.svg" width="16" height="16" alt="YouTube" draggable="false"/>
+              <span>4.53K</span>
+            </a>
+            <a href="https://www.twitch.tv/shoomimi" target="shoomimi_twitch">
+              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+            </a>
+          </footer>
         </div>
       </section>
       <section id="contact-us" class="emphasis column">
