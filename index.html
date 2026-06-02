@@ -328,6 +328,24 @@
           background-image: linear-gradient(to right, transparent 0, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
         }
       }
+
+      #contact-us #stats {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      #contact-us .stat {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        user-select: none;
+        color: white;
+      }
+
+      #contact-us .stat img {
+        filter: invert(1);
+      }
     </style>
   </head>
 
@@ -412,9 +430,9 @@
               <img src="img/social/twitch.svg" width="16" height="16" alt="Twitch" draggable="false"/>
               <span>48.7K</span>
             </a>
-            <a class="stat" href="https://www.youtube.com/channel/@chrchie" target="chrchieyoutube">
+            <a class="stat" href="https://www.youtube.com/channel/UCv7zvIiKMxzqraLx5QGiCbw" target="chrchieyoutube">
               <img src="img/social/youtube.svg" width="16" height="16" alt="YouTube" draggable="false"/>
-              <span>57.6K</span>
+              <span>15.8K</span>
             </a>
             <a class="stat" href="https://www.tiktok.com/@chrchie" target="ellie_tiktok">
               <img src="img/social/tiktok.svg" width="16" height="16" alt="TikTok" draggable="false"/>
@@ -515,10 +533,27 @@
       <section id="contact-us" class="emphasis column">
         <h1>Wanna cook up an experiment together?</h1>
         <h1>For: collaborations, inquiries, appearances, and other mysterious lab matters.</h1>
+        <div class="space-mono">Collective Social Following</div>
+        <div id="stats" class="space-mono">
+          <div class="stat">
+            <img src="img/social/twitch.svg" width="24" height="24" alt="Twitch" draggable="false"/>
+            <span>246.7K</span>
+          </div>
+          <div class="stat">
+            <img src="img/social/youtube.svg" width="24" height="24" alt="YouTube" draggable="false"/>
+            <span>108.4K</span>
+          </div>
+          <div class="stat">
+            <img src="img/social/tiktok.svg" width="24" height="24" alt="TikTok" draggable="false"/>
+            <span>18.8K</span>
+          </div>
+          <div class="stat">
+            <img src="img/social/instagram.svg" width="24" height="24" alt="Instagram" draggable="false"/>
+            <span>13.6K</span>
+          </div>
+        </div>
         <p class="space-mono">
-          <span>// STATS</span>
-          <br>
-          <span><a href="mailto:hi@labbrats.tv">HI@LABBRATS.TV</a></span>
+          <a href="mailto:hi@labbrats.tv">hi@LABBRATS.TV</a>
         </p>
       </section>
       <section id="links" class="emphasis column">
