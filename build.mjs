@@ -68,6 +68,25 @@ for (const person of randomizedKeys) {
     } finally {
       await page.screenshot({ path: `screenshots/${person} X.png` })
     }
+    if (accounts.twitch) {
+      console.log(`Fetching Twitch ${accounts.twitch}`)
+      try {
+        await page.goto(`https://www.twitch.tv/${accounts.twitch}`)
+        const count = await page.getByText(/\d+K followers/)
+        const followers = await count.innerText()
+        updates.push({ key: `${person}-twitch`, value: followers.split(' ')[0] })
+      } catch (e) {
+        console.error(`Error fetching Twitch followers for ${person}:`, e)
+      } finally {
+        await page.screenshot({ path: `screenshots/${person} Twitch.png` })
+      }
+    }
+    if (accounts.youtube) {
+      // TODO
+    }
+    if (accounts.spotify) {
+      // TODO
+    }
   }
 
   await browser.close()

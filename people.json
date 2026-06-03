@@ -2,18 +2,22 @@
   "chrchie": {
     "instagram": "chrchie",
     "tiktok": "chrchie",
-    "x": "chrchie"
+    "x": "chrchie",
+    "twitch": "chrchie"
   },
   "shoomimi": {
     "instagram": "shoomimishoom",
     "x": "Shoomimishoom",
-    "tiktok": "shoomimi"
+    "tiktok": "shoomimi",
+    "twitch": "shoomimi"
   },
   "ellie_minibot": {
     "tiktok": "dumb_lil_robot",
-    "x": "dumb_lil_robot"
+    "x": "dumb_lil_robot",
+    "twitch": "ellie_minibot"
   },
   "minikomew": {
-    "x": "MinikoMew"
+    "x": "MinikoMew",
+    "twitch": "minikomew"
   }
 }
