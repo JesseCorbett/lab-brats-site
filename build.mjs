@@ -68,25 +68,25 @@ for (const person of randomizedKeys) {
     } finally {
       await page.screenshot({ path: `screenshots/${person} X.png` })
     }
-    if (accounts.twitch) {
-      console.log(`Fetching Twitch ${accounts.twitch}`)
-      try {
-        await page.goto(`https://www.twitch.tv/${accounts.twitch}`)
-        const count = await page.getByText(/\d+K followers/)
-        const followers = await count.innerText()
-        updates.push({ key: `${person}-twitch`, value: followers.split(' ')[0] })
-      } catch (e) {
-        console.error(`Error fetching Twitch followers for ${person}:`, e)
-      } finally {
-        await page.screenshot({ path: `screenshots/${person} Twitch.png` })
-      }
+  }
+  if (accounts.twitch) {
+    console.log(`Fetching Twitch ${accounts.twitch}`)
+    try {
+      await page.goto(`https://www.twitch.tv/${accounts.twitch}`)
+      const count = await page.getByText(/\d+K followers/)
+      const followers = await count.innerText()
+      updates.push({ key: `${person}-twitch`, value: followers.split(' ')[0] })
+    } catch (e) {
+      console.error(`Error fetching Twitch followers for ${person}:`, e)
+    } finally {
+      await page.screenshot({ path: `screenshots/${person} Twitch.png` })
     }
-    if (accounts.youtube) {
-      // TODO
-    }
-    if (accounts.spotify) {
-      // TODO
-    }
+  }
+  if (accounts.youtube) {
+    // TODO
+  }
+  if (accounts.spotify) {
+    // TODO
   }
 
   await browser.close()
@@ -95,6 +95,33 @@ for (const person of randomizedKeys) {
 const now = new Date().toISOString()
 const html = fs.readFileSync('index.html', 'utf8')
 const $ = cheerio.load(html)
+
+const platformTotals = {}
+const parseValue = (v) => {
+  if (v === null || v === undefined || v === '') return 0
+  let s = v.toString().replace(/,/g, '').trim().toUpperCase()
+  let multiplier = 1
+  if (s.endsWith('K')) {
+    multiplier = 1000
+    s = s.slice(0, -1)
+  } else if (s.endsWith('M')) { // Optimistic, but I believe in them
+    multiplier = 1000000
+    s = s.slice(0, -1)
+  }
+  const n = parseFloat(s)
+  return isNaN(n) ? 0 : n * multiplier
+}
+
+for (const update of updates) {
+  const platform = update.key.split('-').pop()
+  platformTotals[platform] = (platformTotals[platform] || 0) + parseValue(update.value)
+}
+
+for (const [platform, total] of Object.entries(platformTotals)) {
+  if (total > 0) {
+    updates.push({ key: platform, value: total })
+  }
+}
 
 for (const update of updates) {
   console.log(`Updating ${update.key} to ${update.value}`)
