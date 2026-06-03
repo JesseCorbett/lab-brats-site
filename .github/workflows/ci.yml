@@ -1,4 +1,4 @@
-name: Overnight Follower Sync
+name: Push Deploy
 
 on:
   push:
