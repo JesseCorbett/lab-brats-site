@@ -294,11 +294,89 @@ we're bring you yapping, music, art, gaming, and whatever else escapes containme
         user-select: none;
       }
 
-      #about > div > a {
-        margin: 0 0 0 auto;
+      #about > div > div:last-child {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      #about > div > div:last-child > a:first-child {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      #about > div > div:last-child > a:first-child img {
         display: block;
-        transform: rotate(90deg);
+        width: 50px;
+        height: 50px;
+        max-width: 100%;
+        transition: transform 0.2s ease-in-out;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      #about > div > div:last-child > a:first-child img:hover {
+        transform: scale(1.1) translateY(-3px) rotate(-5deg);
+      }
+
+      #about > div > div:last-child > a:first-child::after {
+        content: attr(data-bubble);
+
+        position: absolute;
+        bottom: 125%;
+        left: 150%;
+        transform: translateX(-50%);
+
+        background-color: #99FFF3;
+        color: #2d2e30;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border-color: #99FFF3;
+        font-family: sans-serif;
+        font-size: 14px;
+        white-space: nowrap;
+
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+      }
+
+      #about > div > div:last-child > a:first-child::before {
+        content: "";
+        position: absolute;
+        bottom: 115%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        border-width: 6px;
+        border-style: solid;
+        border-color: #99FFF3 transparent transparent transparent;
+
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease-in-out;
+      }
+
+      /* 4. Reveal both pseudo-elements on hover */
+      #about > div > div:last-child > a:first-child:hover::after {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-5px); /* Slight lift effect */
+      }
+
+      #about > div > div:last-child > a:first-child:hover::before {
+        opacity: 1;
+      }
+
+      #about > div > div:last-child > a {
+        display: block;
         user-select: none;
+      }
+
+      #about > div > div:last-child > a:last-child {
+        margin-left: auto;
+        transform: rotate(90deg);
       }
 
       @media (max-width: 650px) {
@@ -517,9 +595,18 @@ we're bring you yapping, music, art, gaming, and whatever else escapes containme
               <span data-chrchie-instagram="" data-updated-at="2026-06-03T04:51:05.930Z">13.7K</span>
             </a>
           </div>
-          <a href="https://chrchie.com/" target="chrchie_site">
-            <img src="img/arrow.svg" alt="Link arrow" width="28" height="28" title="chrchie's website">
-          </a>
+          <div>
+            <a href="https://wormpalsona.me/" target="wormpals" data-bubble="Make a wormpal!">
+              <picture>
+                <source srcset="img/mascots/wormpal.avif" type="image/avif">
+                <source srcset="img/mascots/wormpal.webp" type="image/webp">
+                <img src="img/mascots/wormpal.png" alt="Wormpal">
+              </picture>
+            </a>
+            <a href="https://chrchie.com/" target="chrchie_site">
+              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28" title="chrchie's website">
+            </a>
+          </div>
         </div>
         <div id="about-ellie">
           <div class="about-name"><span>Entry 🤖🤍</span><span>Ellie Minibot</span></div>
@@ -557,9 +644,18 @@ we're bring you yapping, music, art, gaming, and whatever else escapes containme
               <span data-ellie_minibot-tiktok="" data-updated-at="2026-06-03T04:51:05.930Z">16.1K</span>
             </a>
           </div>
-          <a href="https://open.spotify.com/artist/4LzVol25GhSbUvPpi89XFY" target="ellie_site" title="Ellie's Spotify">
-            <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
-          </a>
+          <div>
+            <a target="codebugs" data-bubble="That feature's still in development">
+              <picture>
+                <source srcset="img/mascots/codebug.avif" type="image/avif">
+                <source srcset="img/mascots/codebug.webp" type="image/webp">
+                <img src="img/mascots/codebug.png" alt="Codebug">
+              </picture>
+            </a>
+            <a href="https://open.spotify.com/artist/4LzVol25GhSbUvPpi89XFY" target="ellie_site" title="Ellie's Spotify">
+              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+            </a>
+          </div>
         </div>
         <div id="about-miniko">
           <div class="about-name"><span>Entry 📦</span><span>Miniko Mew</span></div>
@@ -592,9 +688,18 @@ we're bring you yapping, music, art, gaming, and whatever else escapes containme
               <span data-minikomew-x="" data-updated-at="2026-06-03T04:51:05.930Z">30.7K</span>
             </a>
           </div>
-          <a href="https://hyperfollow.com/minikomew" target="mini_site" title="MinikoMew's website">
-            <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
-          </a>
+          <div>
+            <a href="https://minyanmaker.me/" target="minyans" data-bubble="Make a minyan!">
+              <picture>
+                <source srcset="img/mascots/minyan.avif" type="image/avif">
+                <source srcset="img/mascots/minyan.webp" type="image/webp">
+                <img src="img/mascots/minyan.png" alt="Minyan">
+              </picture>
+            </a>
+            <a href="https://hyperfollow.com/minikomew" target="mini_site" title="MinikoMew's website">
+              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+            </a>
+          </div>
         </div>
         <div id="about-shoomimi">
           <div class="about-name"><span>Entry 🦾🧠</span><span>Shoomimmi</span></div>
@@ -635,9 +740,18 @@ we're bring you yapping, music, art, gaming, and whatever else escapes containme
               <span data-shoomimi-instagram="">0</span>
             </a>
           </div>
-          <a href="https://www.twitch.tv/shoomimi" target="shoomimi_twitch">
-            <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
-          </a>
+          <div>
+            <a href="https://shoominionlab.me/" target="shoominions" data-bubble="Make a shoominion!">
+              <picture>
+                <source srcset="img/mascots/shoominion.avif" type="image/avif">
+                <source srcset="img/mascots/shoominion.webp" type="image/webp">
+                <img src="img/mascots/shoominion.png" alt="Shoominion">
+              </picture>
+            </a>
+            <a href="https://www.twitch.tv/shoomimi" target="shoomimi_twitch">
+              <img src="img/arrow.svg" alt="Link arrow" width="28" height="28">
+            </a>
+          </div>
         </div>
       </section>
       <section id="contact-us" class="emphasis column">
