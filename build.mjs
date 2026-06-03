@@ -81,7 +81,7 @@ for (const update of updates) {
   console.log(`Updating ${update.key} to ${update.value}`)
 
   let displayValue = update.value
-  const numericValue = Number(update.value.replace(',', ''))
+  const numericValue = Number(update.value?.toString()?.replace(',', ''))
 
   if (update.value !== null && update.value !== '' && !isNaN(numericValue)) {
     if (numericValue >= 1000) {
