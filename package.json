@@ -1,0 +1,25 @@
+{
+  "name": "lab-brats-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build.mjs",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mount-hood-software-club/lab-brats-site.git"
+  },
+  "keywords": [],
+  "author": "jesselcorbett@gmail.com",
+  "license": "Proprietary",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/mount-hood-software-club/lab-brats-site/issues"
+  },
+  "homepage": "https://labbrats.tv/",
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "playwright": "^1.60.0"
+  }
+}

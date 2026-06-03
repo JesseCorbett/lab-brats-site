@@ -1,0 +1,66 @@
+name: Overnight Follower Sync
+
+on:
+  schedule:
+    # Runs every day at 01:00 AM UTC
+    - cron: '0 1 * * *'
+  workflow_dispatch: # Allows you to trigger it manually from the UI for testing
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      contents: write
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      # Tells Playwright to download binaries and system-level Linux dependencies
+      - name: Install Playwright Browsers & Linux Deps
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Updater Script
+        run: npm run build
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: updated follower stats" || echo "No changes to commit"
+          git push
+
+      - name: Setup GitHub Pages Metadata
+        uses: actions/configure-pages@v6
+
+      - name: Upload Static Files Artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: 'site'
+
+      - name: Publish Changes
+        uses: actions/deploy-pages@v4
