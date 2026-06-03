@@ -83,7 +83,17 @@ for (const person of randomizedKeys) {
     }
   }
   if (accounts.youtube) {
-    // TODO
+    console.log(`Fetching YouTube ${accounts.youtube}`)
+    try {
+      await page.goto(`https://www.youtube.com/${accounts.youtube}`)
+      const count = await page.getByText(/\d+K subscribers/)
+      const followers = await count.innerText()
+      updates.push({ key: `${person}-youtube`, value: followers.split(' ')[0] })
+    } catch (e) {
+      console.error(`Error fetching YouTube followers for ${person}:`, e)
+    } finally {
+      await page.screenshot({ path: `screenshots/${person} YouTube.png` })
+    }
   }
   if (accounts.spotify) {
     // TODO
@@ -124,8 +134,6 @@ for (const [platform, total] of Object.entries(platformTotals)) {
 }
 
 for (const update of updates) {
-  console.log(`Updating ${update.key} to ${update.value}`)
-
   let displayValue = update.value
   const numericValue = Number(update.value?.toString()?.replace(',', ''))
 
@@ -137,6 +145,7 @@ for (const update of updates) {
     }
   }
 
+  console.log(`Updating ${update.key} to ${displayValue}`)
   const elements = $(`[data-${update.key}]`)
   elements.text(displayValue).attr('data-updated-at', now)
 }
