@@ -103,8 +103,6 @@ for (const person of randomizedKeys) {
 }
 
 const now = new Date().toISOString()
-const html = fs.readFileSync('index.html', 'utf8')
-const $ = cheerio.load(html)
 
 const platformTotals = {}
 const parseValue = (v) => {
@@ -133,21 +131,26 @@ for (const [platform, total] of Object.entries(platformTotals)) {
   }
 }
 
-for (const update of updates) {
-  let displayValue = update.value
-  const numericValue = Number(update.value?.toString()?.replace(',', ''))
+for (const file of ['index.html', 'live.html']) {
+  const html = fs.readFileSync(file, 'utf8')
+  const $ = cheerio.load(html)
 
-  if (update.value !== null && update.value !== '' && !isNaN(numericValue)) {
-    if (numericValue >= 1000) {
-      displayValue = `${Math.round(numericValue / 100) / 10}K`
-    } else {
-      continue
+  for (const update of updates) {
+    let displayValue = update.value
+    const numericValue = Number(update.value?.toString()?.replace(',', ''))
+
+    if (update.value !== null && update.value !== '' && !isNaN(numericValue)) {
+      if (numericValue >= 1000) {
+        displayValue = `${Math.round(numericValue / 100) / 10}K`
+      } else {
+        continue
+      }
     }
+
+    console.log(`Updating ${file} ${update.key} to ${displayValue}`)
+    const elements = $(`[data-${update.key}]`)
+    elements.text(displayValue).attr('data-updated-at', now)
   }
 
-  console.log(`Updating ${update.key} to ${displayValue}`)
-  const elements = $(`[data-${update.key}]`)
-  elements.text(displayValue).attr('data-updated-at', now)
+  fs.writeFileSync(file, $.html())
 }
-
-fs.writeFileSync('index.html', $.html())
