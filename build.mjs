@@ -69,8 +69,6 @@ for (const person of randomizedKeys) {
     })
     const xPage = await xContext.newPage()
     try {
-      await page.goto(`https://x.com/${accounts.x}`)
-      const count = await page.locator(`a[href="/${accounts.x}/verified_followers"] > div > span:first-child`)
       const response = await xPage.goto(`https://x.com/${accounts.x}`)
       if (!response.ok()) throw new Error(`X returned HTTP ${response.status()}`)
       const count = await xPage.locator(`a[href="/${accounts.x}/verified_followers"] > div > span:first-child`)
@@ -79,7 +77,6 @@ for (const person of randomizedKeys) {
     } catch (e) {
       console.error(`Error fetching X followers for ${person}:`, e)
     } finally {
-      await page.screenshot({ path: `screenshots/${person} X.png` })
       await xPage.screenshot({ path: `screenshots/${person} X.png` })
       await xContext.close()
     }
