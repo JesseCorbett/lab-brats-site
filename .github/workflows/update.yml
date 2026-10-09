@@ -8,7 +8,7 @@ on:
 
 jobs:
   update-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
